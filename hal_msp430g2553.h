@@ -3,7 +3,7 @@
 
 void hal_init( void );
 
-uint64_t hal_get_tick( void );
+uint64_t hal_get_sys_tick( void );
 
 void hal_led_heartbeat( int8_t state ); /* for heartbeat application */
 

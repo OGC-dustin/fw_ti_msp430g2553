@@ -2,6 +2,8 @@
  *
  */
 
+#include <msp430.h>
+#include <stdlib.h>
 #include <stdint.h>
 
 void hal_init( void )
@@ -62,7 +64,7 @@ void hal_init( void )
 }
 
 uint64_t tick_system = 0U;
-uint64_t hal_get_tick( void )
+uint64_t hal_get_sys_tick( void )
 {
     return ( tick_system );
 }
@@ -77,10 +79,10 @@ void hal_led_heartbeat( int8_t state )
 {
     switch ( state )
     {
-        case ON:
+        case 1:
             P1OUT |= BIT6;          /* set output high */
             break;
-        case OFF:
+        case 0:
             P1OUT &= ~BIT6;         /* set output low */
             break;
         default:
