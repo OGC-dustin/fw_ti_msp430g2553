@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-void hal_init( void )
+void hal_config( void )
 {
     WDTCTL = WDTPW | WDTHOLD;       /* stop watchdog timer */
 
@@ -58,9 +58,14 @@ void hal_init( void )
 
     UCA0CTL1 &= ~UCSWRST;           /* 0 = USCI module operational */
 
-    _enable_interrupt();
+    _EINT(); /* in430.h replacement of intrinsics.h version _enable_interrupt() */
 
     return;
+}
+
+void hal_init( void )
+{
+
 }
 
 uint64_t tick_system = 0U;

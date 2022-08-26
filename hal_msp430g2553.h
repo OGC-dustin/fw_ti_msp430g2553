@@ -1,6 +1,7 @@
 #ifndef HAL_MSP430G2553_H
 #define HAL_MSP430G2553_H
 
+void hal_config( void );
 void hal_init( void );
 
 uint64_t hal_get_sys_tick( void );
